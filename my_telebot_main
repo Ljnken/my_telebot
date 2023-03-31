@@ -1,0 +1,8 @@
+import telebot
+bot = telebot.TeleBot('6289545136:AAFX9zRDLC5ApWv9xKieT2aukkCfS9v9ntM')
+@bot.message_handler(func=lambda message: True)
+def echo_all(message):
+    converted_text = message.text.replace('з', 'Z').replace('с', 'Z').replace('в', 'V').replace('З', 'Z').replace('С', 'Z').replace('ц', 'Z').replace('Ц', 'Z').replace('В', 'V').strip()
+    bot.reply_to(message, converted_text)
+
+bot.polling()
